@@ -571,7 +571,17 @@ function resetAll() {
 <script>
 document.querySelectorAll("button").forEach(function(btn){
   btn.addEventListener("click", function(){
-    alert("クリックは通っています");
+
+    // 表紙を消す
+    var intro = document.querySelector(".intro-content");
+    if (intro) intro.style.display = "none";
+
+    // 診断画面を出す
+    var cards = document.querySelectorAll(".test-card");
+    cards.forEach(function(el){
+      el.style.display = "block";
+    });
+
   });
 });
 </script>
