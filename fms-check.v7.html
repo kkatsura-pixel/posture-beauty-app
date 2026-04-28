@@ -572,18 +572,19 @@ function resetAll() {
 document.querySelectorAll("button").forEach(function(btn){
   btn.addEventListener("click", function(){
 
-    // 表紙だけ消す
+    // 表紙を消す
     var intro = document.querySelector(".intro-content");
     if (intro) intro.style.display = "none";
 
-    // それ以外を全部表示
-    document.querySelectorAll("body *").forEach(function(el){
-      if (!el.className.includes("intro")) {
-        el.style.display = "block";
-        el.style.visibility = "visible";
-        el.style.opacity = "1";
-      }
-    });
+    // test-cardを強制的に画面中央に出す
+    var card = document.querySelector(".test-card");
+    if (card) {
+      card.style.display = "block";
+      card.style.position = "relative";
+      card.style.zIndex = "9999";
+      card.style.opacity = "1";
+      card.style.visibility = "visible";
+    }
 
   });
 });
