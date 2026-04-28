@@ -572,14 +572,17 @@ function resetAll() {
 document.querySelectorAll("button").forEach(function(btn){
   btn.addEventListener("click", function(){
 
-    // 表紙を消す
+    // 表紙だけ消す
     var intro = document.querySelector(".intro-content");
     if (intro) intro.style.display = "none";
 
-    // 診断画面を出す
-    var cards = document.querySelectorAll(".test-card");
-    cards.forEach(function(el){
-      el.style.display = "block";
+    // それ以外を全部表示
+    document.querySelectorAll("body *").forEach(function(el){
+      if (!el.className.includes("intro")) {
+        el.style.display = "block";
+        el.style.visibility = "visible";
+        el.style.opacity = "1";
+      }
     });
 
   });
